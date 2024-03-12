@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+     - uses: actions/checkout@v3
+     - name: docker login
+       env:
+         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+       run: |
+         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+     
+     - name: Build frontend
+       run: cd app/frontend && docker build . --tag barbhua786/frontend
+     - name: Build backend
+       run: cd app/backend && docker build . --tag barbhua786/backend
+
+     - name: Docker Push frontend
+       run: docker push barbhua786/frontend
+     - name: Docker Push backend
+       run: docker push barbhua786/backend

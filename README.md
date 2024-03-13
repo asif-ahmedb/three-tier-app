@@ -1,7 +1,7 @@
 # three-tier-app
 
 ## Description
-This is a repository for a simple three tier application using Node.js and mongodb. Here we have the code for frontend and backend components which are built as docker images and pushed to public docker registry. These images are then used further in a Kubernetes deployment. The terraform files and kubernetes manifests are in a seperate GitHub repository https://github.com/asif-ahmedb/three-tier-app-iac/tree/main
+This is a repository for a simple three tier application using Node.js and mongodb. Here we have the code for frontend and backend components which are built as docker images and pushed to public docker registry. These images are then used further in a Kubernetes deployment. Mongo DB is configured via kubernetes manifests and is part of IAC repository. The terraform files and kubernetes manifests are in a seperate GitHub repository https://github.com/asif-ahmedb/three-tier-app-iac/tree/main
 
 ## Steps to build
 
